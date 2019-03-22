@@ -1,0 +1,38 @@
+.customMediaPlayer{
+	border-radius: 5px;
+	margin:5px;
+	background-color: #505050;
+	padding: 5px;
+	color:white;
+	font-size: 8px;
+}
+.customMediaPlayer div.item{
+	display: inline-block;
+}
+.customMediaPlayer .playerActionButton{
+	padding: 8px !important;
+}
+.customMediaPlayer .playerActionButton:hover{
+	color:white;
+	cursor: pointer;
+}
+.customMediaPlayer .playerProgressBar{
+	border-radius: 5px;
+	padding: 8px!important;
+}
+/* modifying slider */
+.customMediaPlayer .ui-widget.ui-widget-content{
+	border:none;
+}
+.customMediaPlayer .ui-widget-header{
+	background-color: grey;
+}
+.customMediaPlayer .ui-slider-handle{
+	border-radius: 50%;
+}
+.musicPlayerVolumeManager{
+	width: 100%;
+	height: 20px;
+	padding: 5px;
+	border-radius: 5px;
+}
