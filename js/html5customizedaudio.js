@@ -1,13 +1,3 @@
-$(document).ready(function(){
-	const devMusicPlayer1 = new devMusicPlayer('devMusicPlayer', 'musics/a.mp3'); // Warning: identifier name mustn't be devMusicPlayer
-	devMusicPlayer1.play();
-
-	const devMusicPlayerVolume1 = new devMusicPlayerVolume('devMusicPlayerVolume', 'devMusicPlayer');
-
-	const newmusicplayer = new devMusicPlayer('newmusicplayer', 'musics/a.mp3');
-	const newmusicplayervolume = new devMusicPlayerVolume('newmusicplayervolume', 'newmusicplayer');
-});
-
 function devMusicPlayer(elementId, datasource=null, externalvolumeslider=false){
 	var _this = this; // creating instance of this
 
@@ -19,7 +9,7 @@ function devMusicPlayer(elementId, datasource=null, externalvolumeslider=false){
 	this.$mainElement.addClass('d-flex');
 
 	// adding required elements inside parent
-	let innerElementsHtml = '<div class="playerActionButton item p-2" id="'+this.elementId+'PlayButton"><span id="'+this.elementId+'PlayButtonIcon" class="fas">&#xf04b;</span></div><div class="playerProgressBar item p-2 flex-grow-1"><div id="'+this.elementId+'Slider"></div></div><audio id="'+this.elementId+'Main" preload="metadata"><source src="musics/a.mp3" type="audio/mpeg"></audio>';
+	let innerElementsHtml = '<div class="playerActionButton item p-2" id="'+this.elementId+'PlayButton"><span id="'+this.elementId+'PlayButtonIcon" class="fas">&#xf04b;</span></div><div class="playerProgressBar item p-2 flex-grow-1"><div id="'+this.elementId+'Slider"></div></div><audio id="'+this.elementId+'Main" preload="metadata" hidden><source src="musics/a.mp3" type="audio/mpeg"></audio>';
 	this.$mainElement.append(innerElementsHtml);
 
 	// declaring variables / jquery
@@ -32,10 +22,10 @@ function devMusicPlayer(elementId, datasource=null, externalvolumeslider=false){
 	this.playButtonIconElement = document.getElementById(this.elementId+'PlayButtonIcon'); // play button icon element
 	if (datasource != null){
 		this.dataSrc = datasource;
+		this.audioElement.src = this.dataSrc;
 	} else {
 		this.dataSrc = '';
 	}
-	this.audioElement.src = this.dataSrc;
 	this.metadataloaded = false;
 	this.duration;
 	this.startTime = this.audioElement.currentTime;
